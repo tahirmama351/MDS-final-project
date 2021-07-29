@@ -14,7 +14,7 @@ export class AppComponent {
   newEvent: any = { arsenal: 0, manchister: 0 };
   subscribe: any;
   todoform: FormGroup;
-
+  eventSource: any = new EventSource('http://localhost:3030/socers');
   constructor(
     private mainService: MainService,
     private fb: FormBuilder,
@@ -26,8 +26,6 @@ export class AppComponent {
     });
   }
 
-  eventSource = new EventSource('http://localhost:3030/schedules');
-
   ngOnInit() {
     this.chackConnetion();
     this.notificationupdate();
@@ -37,12 +35,15 @@ export class AppComponent {
     let body = this.todoform.value;
     this.subscribe = this.mainService
       .postServerEvent(body)
-      .subscribe((data: any) => {});
+      .subscribe((data: any) => {
+        this.mainService.showInfo(
+          `Arsenal:${data.arsenal}--Manchistre:${data.manchister}`
+        );
+      });
     //
-    this.showToasterInfo();
   }
   notificationupdate() {
-    this.eventSource.onmessage = (event): void => {
+    this.eventSource.onmessage = (event: any): void => {
       this.newEvent = JSON.parse(event.data);
     };
   }
@@ -50,18 +51,13 @@ export class AppComponent {
   chackConnetion() {
     this.eventSource.addEventListener(
       'open',
-      function (event) {
+      function (event: any) {
         console.log('Connection was opened');
       },
       false
     );
   }
-  showToasterInfo() {
-    console.log('this newEvent Toastr', this.newEvent);
-    this.mainService.showInfo(
-      `Arsenal:${this.newEvent.arsenal}--Manchistre:${this.newEvent.manchister}`
-    );
-  }
+  showToasterInfo() {}
   ngOnDestroy(): void {
     this.subscribe.unsubscribe();
   }

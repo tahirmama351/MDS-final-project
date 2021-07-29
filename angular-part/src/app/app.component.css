@@ -4,6 +4,7 @@
   max-width: 100%;
   background-color: #d2edee;
   border-radius: 5px;
+  height: 580px;
 }
 .header {
   position: relative;
@@ -11,12 +12,13 @@
   color: white;
   padding: 5px 5px;
   margin: 20px 0px 15px 0px;
-  border-radius: 15px;
+  /* border-radius: 15px; */
 }
 .formContainer {
   margin: 10px 40% 15px 5%;
   background-color: #e7f3f8;
   border-radius: 15px;
+  height: 280px;
 }
 
 .formContainer form {
@@ -24,6 +26,10 @@
 }
 .formContainer form h2 {
   margin: 3%;
+}
+.formContainer form h1 {
+  margin: 3%;
+  /* font-size: 100px; */
 }
 h1 {
   margin: auto;
@@ -37,9 +43,10 @@ h1 {
 
 .example-full-width {
   width: 50%;
+  padding: 5px 5px;
 }
 
-::ng-deep.blue-snackbar {
+/* ::ng-deep.blue-snackbar {
   background: hsl(132, 24%, 96%);
   color: black;
-}
+} */

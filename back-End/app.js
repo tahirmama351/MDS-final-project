@@ -8,10 +8,10 @@ app.use(express.json());
 let clients = [];
 let score = { arsenal: 0, manchister: 0 };
 //
-app.get("/schedules", eventHandler);
+app.get("/socers", eventHandler);
 app.get("/notification", eventHandler);
 //
-async function eventHandler(req, res, next) {
+function eventHandler(req, res, next) {
   const headeers = {
     "Cache-Control": "no-cache",
     "Content-Type": "text/event-stream",
@@ -84,7 +84,6 @@ async function addEvent(request, response) {
 }
 
 function sendEventsToListners(newScore) {
-  console.log("new score", newScore);
   clients.forEach((client) =>
     client.res.write(`data: ${JSON.stringify(newScore)}\n\n`)
   );

@@ -17,7 +17,8 @@ export class MainService {
     this.toastr.info(message, '', {
       closeButton: true,
       timeOut: 0,
-      positionClass: 'toast-top-right',
+      // preventDuplicates: false,
+      positionClass: 'toast-bottom-right',
     });
   }
 }
