@@ -1,0 +1,45 @@
+.container {
+  margin: 10px 5px 15px 20px;
+  padding: 0;
+  max-width: 100%;
+  background-color: #d2edee;
+  border-radius: 5px;
+}
+.header {
+  position: relative;
+  background-color: #75d67d;
+  color: white;
+  padding: 5px 5px;
+  margin: 20px 0px 15px 0px;
+  border-radius: 15px;
+}
+.formContainer {
+  margin: 10px 40% 15px 5%;
+  background-color: #e7f3f8;
+  border-radius: 15px;
+}
+
+.formContainer form {
+  margin: 5%;
+}
+.formContainer form h2 {
+  margin: 3%;
+}
+h1 {
+  margin: auto;
+  text-align: center;
+  padding: 5px 5px;
+}
+.h2 {
+  text-align: left;
+  padding: 0 0 2px 0;
+}
+
+.example-full-width {
+  width: 50%;
+}
+
+::ng-deep.blue-snackbar {
+  background: hsl(132, 24%, 96%);
+  color: black;
+}

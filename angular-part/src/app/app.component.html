@@ -1,0 +1,54 @@
+<!-- <mat-slider min="1" max="100" step="1" value="1"></mat-slider> -->
+<div class="container">
+  <div class="header">
+    <h1>Remind Me App</h1>
+  </div>
+
+  <div>
+    <h1>Arsenal: {{ newEvent.arsenal }}</h1>
+    <h1>Manchister: {{ newEvent.manchister }}</h1>
+  </div>
+  <div class="formContainer">
+    <form [formGroup]="todoform" (ngSubmit)="addTodo()">
+      <!-- <h2>Arsenal</h2> -->
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Arsenal</mat-label>
+        <input matInput placeholder="arsenal" formControlName="arsenal" />
+      </mat-form-field>
+      <!-- <h2>Manchister</h2> -->
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Manchister</mat-label>
+        <input matInput placeholder="manchister" formControlName="manchister" />
+      </mat-form-field>
+      <!-- <h2>Choose a date and time</h2>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Choose a date</mat-label>
+        <input
+          type="datetime-local"
+          matInput
+          placeholder="Choose a date"
+          formControlName="date"
+        />
+      </mat-form-field> -->
+      <button [disabled]="!todoform.valid" mat-raised-button color="primary">
+        post new Score
+      </button>
+    </form>
+  </div>
+
+  <!-- <button
+      style="float: right"
+      mat-raised-button
+      matBadgeColor="warn"
+      matBadge="{{ workout.length }}"
+      (click)="showNotification()"
+    >
+      Notifications
+    </button> -->
+  <!-- <div class="spacer" *ngIf="workout.length && showEvent">
+      <mat-list *ngFor="let work of workout.reverse()">
+        <mat-divider></mat-divider>
+        <mat-list-item> {{ work.todo }} {{ work.date }} </mat-list-item>
+      </mat-list>
+    </div> -->
+</div>
